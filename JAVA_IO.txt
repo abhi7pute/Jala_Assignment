@@ -1,0 +1,210 @@
+1. Read text from a .txt file using InputStream:
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class ReadTextFileWithInputStream {
+    public static void main(String[] args) {
+        try (FileInputStream inputStream = new FileInputStream("input.txt")) {
+            int data;
+            while ((data = inputStream.read()) != -1) {
+                System.out.print((char) data);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+2. Write text to a .txt file using OutputStream:
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class WriteTextFileWithOutputStream {
+    public static void main(String[] args) {
+        try (FileOutputStream outputStream = new FileOutputStream("output.txt")) {
+            String text = "Hello, World!";
+            byte[] bytes = text.getBytes();
+            outputStream.write(bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+3. Read text from a .txt file using BufferedInputStream:
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class ReadTextFileWithBufferedInputStream {
+    public static void main(String[] args) {
+        try (BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream("input.txt"))) {
+            int data;
+            while ((data = inputStream.read()) != -1) {
+                System.out.print((char) data);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+
+4. Write text to a .txt file using BufferedOutputStream:
+
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class WriteTextFileWithBufferedOutputStream {
+    public static void main(String[] args) {
+        try (BufferedOutputStream outputStream = new BufferedOutputStream(new FileOutputStream("output.txt"))) {
+            String text = "Hello, World!";
+            byte[] bytes = text.getBytes();
+            outputStream.write(bytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+ 
+
+5. Read text from a .txt file using FileReader:
+ 
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadTextFileWithFileReader {
+    public static void main(String[] args) {
+        try (FileReader reader = new FileReader("input.txt")) {
+            int data;
+            while ((data = reader.read()) != -1) {
+                System.out.print((char) data);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+6. Write text to a .txt file using FileWriter:
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class WriteTextFileWithFileWriter {
+    public static void main(String[] args) {
+        try (FileWriter writer = new FileWriter("output.txt")) {
+            String text = "Hello, World!";
+            writer.write(text);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+7. Read text from a .txt file using BufferedReader:
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadTextFileWithBufferedReader {
+    public static void main(String[] args) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("input.txt"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+8. Write text to a .txt file using BufferedWriter:
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class WriteTextFileWithBufferedWriter {
+    public static void main(String[] args) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("output.txt"))) {
+            String text = "Hello, World!";
+            writer.write(text);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+9. Read data from a properties file:
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class ReadPropertiesFile {
+    public static void main(String[] args) {
+        Properties properties = new Properties();
+        try (FileInputStream fileInputStream = new FileInputStream("config.properties")) {
+            properties.load(fileInputStream);
+            String value = properties.getProperty("key");
+            System.out.println("Value: " + value);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+10. Read data from an Excel file:
+
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class ReadExcelFile {
+    public static void main(String[] args) {
+        try (FileInputStream fileInputStream = new FileInputStream("data.xlsx");
+             Workbook workbook = new XSSFWorkbook(fileInputStream)) {
+
+            Sheet sheet = workbook.getSheetAt(0);
+
+            for (Row row : sheet) {
+                for (Cell cell : row) {
+                    System.out.print(cell.toString() + "\t");
+                }
+                System.out.println();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+11. Write data to an Excel file:
+
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class WriteExcelFile {
+    public static void main(String[] args) {
+        try (Workbook workbook = new XSSFWorkbook();
+             FileOutputStream fileOutputStream = new FileOutputStream("output.xlsx")) {
+
+            Sheet sheet = workbook.createSheet("Sheet1");
+            Row row = sheet.createRow(0);
+            Cell cell = row.createCell(0);
+            cell.setCellValue("Hello, World!");
+
+            workbook.write(fileOutputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

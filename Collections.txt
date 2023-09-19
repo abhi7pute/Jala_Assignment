@@ -1,0 +1,153 @@
+1: ArrayList Operations
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ArrayListOperations {
+    public static void main(String[] args) {
+        
+        ArrayList<String> stringList = new ArrayList<>();
+        
+        for (int i = 1; i <= 10; i++) {
+            stringList.add("Element " + i);
+        }
+        
+        stringList.add("New Element");
+        
+        Iterator<String> iterator = stringList.iterator();
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+        
+        stringList.add(5, "Element at Index 5");
+        
+        stringList.remove(3); // Remove the 4th element
+        
+        stringList.set(7, "Updated Element");
+        
+        int indexToCheck = 2;
+        boolean isElementPresent = indexToCheck >= 0 && indexToCheck < stringList.size();
+        System.out.println("Element present at index " + indexToCheck + ": " + isElementPresent);
+        
+        int getIndex = 6;
+        if (getIndex >= 0 && getIndex < stringList.size()) {
+            String elementAtIndex = stringList.get(getIndex);
+            System.out.println("Element at index " + getIndex + ": " + elementAtIndex);
+        }
+        
+        int size = stringList.size();
+        System.out.println("Size of ArrayList: " + size);
+        
+        String elementToCheck = "New Element";
+        boolean isElementInList = stringList.contains(elementToCheck);
+        System.out.println("Element \"" + elementToCheck + "\" present in ArrayList: " + isElementInList);
+        
+        stringList.clear();
+        
+        System.out.println("Is ArrayList empty: " + stringList.isEmpty());
+    }
+}
+2: HashMap Operations
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashMapOperations {
+    public static void main(String[] args) {
+        // Create a HashMap with at least 10 key-value pairs of Student ID and Name
+        Map<Integer, String> studentMap = new HashMap<>();
+        
+        // Insert key-value mappings into the map
+        for (int i = 1; i <= 10; i++) {
+            studentMap.put(i, "Student " + i);
+        }
+        
+        // Fetch the value of a specific key
+        int keyToFetch = 5;
+        String value = studentMap.get(keyToFetch);
+        System.out.println("Value for key " + keyToFetch + ": " + value);
+        
+        // Create a clone/copy of HashMap
+        Map<Integer, String> clonedMap = new HashMap<>(studentMap);
+        
+        // Check if a specific key is in the map
+        int keyToCheck = 3;
+        boolean containsKey = studentMap.containsKey(keyToCheck);
+        System.out.println("Does map contain key " + keyToCheck + ": " + containsKey);
+        
+        // Check if a specific value is in the map
+        String valueToCheck = "Student 8";
+        boolean containsValue = studentMap.containsValue(valueToCheck);
+        System.out.println("Does map contain value \"" + valueToCheck + "\": " + containsValue);
+        
+        // Check if the map is empty
+        boolean isEmpty = studentMap.isEmpty();
+        System.out.println("Is the map empty: " + isEmpty);
+        
+        // Print the size of the map
+        int mapSize = studentMap.size();
+        System.out.println("Size of the map: " + mapSize);
+        
+        // Print all the keys of the map
+        System.out.println("Keys in the map: " + studentMap.keySet());
+        
+        // Remove a specific key-value pair
+        int keyToRemove = 2;
+        studentMap.remove(keyToRemove);
+        
+        // Copy all elements of the map to another map
+        Map<Integer, String> anotherMap = new HashMap<>(studentMap);
+        
+        // Print the updated map
+        System.out.println("Updated map after removing key " + keyToRemove + ": " + studentMap);
+    }
+}
+3: HashSet Operations
+import java.util.HashSet;
+import java.util.Iterator;
+
+public class HashSetOperations {
+    public static void main(String[] args) {
+        // Create a HashSet with at least 10 elements of type String
+        HashSet<String> stringSet = new HashSet<>();
+        
+        // Add elements to the HashSet
+        stringSet.add("Element 1");
+        stringSet.add("Element 2");
+        stringSet.add("Element 3");
+        stringSet.add("Element 4");
+        stringSet.add("Element 5");
+        stringSet.add("Element 6");
+        stringSet.add("Element 7");
+        stringSet.add("Element 8");
+        stringSet.add("Element 9");
+        stringSet.add("Element 10");
+        
+        // Iterate through the HashSet using an Iterator
+        Iterator<String> iterator = stringSet.iterator();
+        while (iterator.hasNext()) {
+            String element = iterator.next();
+            System.out.println("Element: " + element);
+        }
+        
+        // Add a duplicate element (won't be added again, as HashSet doesn't allow duplicates)
+        stringSet.add("Element 1");
+        
+        // Remove an element from the HashSet
+        stringSet.remove("Element 5");
+        
+        // Check if an element is present in the HashSet
+        String elementToCheck = "Element 3";
+        boolean containsElement = stringSet.contains(elementToCheck);
+        System.out.println("HashSet contains element \"" + elementToCheck + "\": " + containsElement);
+        
+        // Find out the size of the HashSet
+        int setSize = stringSet.size();
+        System.out.println("Size of HashSet: " + setSize);
+        
+        // Remove all elements from the HashSet
+        stringSet.clear();
+        
+        // Check if the HashSet is empty
+        boolean isEmpty = stringSet.isEmpty();
+        System.out.println("Is HashSet empty: " + isEmpty);
+    }
+}

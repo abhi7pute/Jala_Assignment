@@ -1,0 +1,87 @@
+public class StringManipulationExample {
+
+    public static void main(String[] args) {
+        //1: Different ways of creating a string in Java
+        String str1 = "Hello, World!";
+        String str2 = new String("Hello, World!");
+        char[] charArray = {'H', 'e', 'l', 'l', 'o'};
+        String str3 = new String(charArray);
+        StringBuilder stringBuilder = new StringBuilder("Hello");
+        stringBuilder.append(", World!");
+        String str4 = stringBuilder.toString();
+
+        // 2: Concatenating two strings using the + operator
+        String str5 = "Hello";
+        String str6 = "World";
+        String result = str5 + ", " + str6;
+        System.out.println(result);
+
+        // 3: Finding the length of the string
+        String str7 = "Hello, World!";
+        int length = str7.length();
+        System.out.println("Length of the string: " + length);
+
+        // 4: Extracting a substring using Substring
+        String str8 = "Hello, World!";
+        String subStr = str8.substring(7, 12);
+        System.out.println(subStr);
+
+        //5: Searching in strings using indexOf()
+        String str9 = "Hello, World!";
+        int index = str9.indexOf("World");
+        System.out.println("Index of 'World': " + index);
+
+        //6: Matching a String Against a Regular Expression With matches()
+        String str10 = "Hello,123";
+        boolean isMatch = str10.matches("[A-Za-z]+,\\d+");
+        System.out.println("Matches: " + isMatch);
+
+        //7: Comparing strings using various methods
+        String str11 = "hello";
+        String str12 = "Hello";
+        boolean isEqual = str11.equals(str12); 
+        boolean isIgnoreCaseEqual = str11.equalsIgnoreCase(str12);
+        boolean startsWith = str11.startsWith("he");
+        boolean endsWith = str11.endsWith("lo");
+        int compareResult = str11.compareTo(str12);
+        System.out.println("isEqual: " + isEqual);
+        System.out.println("isIgnoreCaseEqual: " + isIgnoreCaseEqual);
+        System.out.println("startsWith: " + startsWith);
+        System.out.println("endsWith: " + endsWith);
+        System.out.println("compareResult: " + compareResult);
+
+        //8: Trimming strings with trim()
+        String str13 = "   Trim me!   ";
+        String trimmedStr = str13.trim();
+        System.out.println(trimmedStr);
+
+        //9: Replacing characters in strings with replace()
+        String str14 = "Hello, World!";
+        String replacedStr = str14.replace("World", "Java");
+        System.out.println(replacedStr);
+
+        //10: Splitting strings with split()
+        String str15 = "apple,banana,orange";
+        String[] fruits = str15.split(",");
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+        }
+
+        //11: Converting numbers to strings with valueOf()
+        int number = 42;
+        String str16 = String.valueOf(number);
+        System.out.println(str16);
+
+        // 12: Converting integer objects to Strings
+        Integer intValue = 42;
+        String str17 = intValue.toString();
+        System.out.println(str17);
+
+        // 13: Converting a string to uppercase and lowercase
+        String str18 = "Hello, World!";
+        String upperCaseStr = str18.toUpperCase();
+        String lowerCaseStr = str18.toLowerCase();
+        System.out.println(upperCaseStr);
+        System.out.println(lowerCaseStr);
+    }
+}

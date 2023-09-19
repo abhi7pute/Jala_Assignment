@@ -1,0 +1,99 @@
+1.Two methods with the same name but different numbers of parameters of the same type:
+public class MethodOverloadingExample {
+
+    // Method with one int parameter
+    static void printNumber(int num) {
+        System.out.println("Number: " + num);
+    }
+
+    // Method with two int parameters
+    static void printNumber(int num1, int num2) {
+        System.out.println("Numbers: " + num1 + ", " + num2);
+    }
+
+    public static void main(String[] args) {
+        printNumber(5);
+        printNumber(10, 20);
+    }
+}
+2. Two methods with the same name but different numbers of parameters of different data types:
+
+public class MethodOverloadingExample {
+
+    // Method with an int parameter
+    static void printNumber(int num) {
+        System.out.println("Number (int): " + num);
+    }
+
+    // Method with a double parameter
+    static void printNumber(double num) {
+        System.out.println("Number (double): " + num);
+    }
+
+    public static void main(String[] args) {
+        printNumber(5);       // Calls the int version
+        printNumber(10.5);    // Calls the double version
+    }
+}
+3.Two methods with the same name and the same number of parameters of the same type:
+public class MethodOverloadingExample {
+
+    // Method with two int parameters
+    static int add(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    // Method with two int parameters, but performs a different operation
+    static int subtract(int num1, int num2) {
+        return num1 - num2;
+    }
+
+    public static void main(String[] args) {
+        int result1 = add(5, 3);
+        int result2 = subtract(10, 4);
+        System.out.println("Result1: " + result1);
+        System.out.println("Result2: " + result2);
+    }
+}
+
+4. Two methods with the same name and the same number of parameters of different types:
+public class MethodOverloadingExample {
+
+    // Method with two int parameters
+    static int calculate(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    // Method with two double parameters
+    static double calculate(double num1, double num2) {
+        return num1 * num2;
+    }
+
+    public static void main(String[] args) {
+        int result1 = calculate(5, 3);
+        double result2 = calculate(2.5, 4.0);
+        System.out.println("Result1: " + result1);
+        System.out.println("Result2: " + result2);
+    }
+}
+
+5. Two methods with the same name, the same number of parameters, and the same data type but different return types:
+public class MethodOverloadingExample {
+
+    // Method with two int parameters and returns an int
+    static int calculate(int num1, int num2) {
+        return num1 + num2;
+    }
+
+    // Method with two int parameters and returns a double
+    static double calculate(int num1, int num2) {
+        return (double) (num1 + num2);
+    }
+
+    public static void main(String[] args) {
+        int result1 = calculate(5, 3);
+        double result2 = calculate(2, 4);
+        System.out.println("Result1: " + result1);
+        System.out.println("Result2: " + result2);
+    }
+}

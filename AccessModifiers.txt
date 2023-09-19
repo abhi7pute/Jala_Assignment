@@ -1,0 +1,82 @@
+1: Private Fields and Methods
+public class MainClass {
+    private int privateField = 10;
+
+    private void privateMethod() {
+        System.out.println("Private Method Called");
+    }
+
+    public static void main(String[] args) {
+        MainClass obj = new MainClass();
+        System.out.println("Private Field Value: " + obj.privateField);
+        obj.privateMethod(); // Calling private method
+    }
+}
+
+class SubClass extends MainClass {
+    public void accessPrivateMembers() {
+        
+    }
+}
+2: Default Fields and Methods
+class DefaultClass {
+    int defaultField = 20;
+
+    void defaultMethod() {
+        System.out.println("Default Method Called");
+    }
+}
+
+class AnotherClass {
+    public static void main(String[] args) {
+        DefaultClass obj = new DefaultClass();
+        System.out.println("Default Field Value: " + obj.defaultField);
+        obj.defaultMethod(); // Calling default method
+    }
+}
+3: Protected Fields and Method
+package package1;
+
+public class ProtectedClass {
+    protected int protectedField = 30;
+
+    protected void protectedMethod() {
+        System.out.println("Protected Method Called");
+    }
+}
+
+class ChildClass extends ProtectedClass {
+    public void accessProtectedMembers() {
+        System.out.println("Protected Field Value: " + protectedField);
+        protectedMethod();
+    }
+}
+
+package package2;
+
+import package1.ProtectedClass;
+
+public class AnotherPackageClass {
+    public static void main(String[] args) {
+        ProtectedClass obj = new ProtectedClass();
+        System.out.println("Protected Field Value from Another Package: " + obj.protectedField);
+        obj.protectedMethod(); // Calling protected method from another package (this works because it's inherited)
+    }
+}
+4: Public Fields and Methods
+public class PublicClass {
+    public int publicField = 40;
+
+    public void publicMethod() {
+        System.out.println("Public Method Called");
+    }
+}
+
+class AnotherClass {
+    public static void main(String[] args) {
+        PublicClass obj = new PublicClass();
+        System.out.println("Public Field Value: " + obj.publicField);
+        obj.publicMethod(); // Calling public method
+    }
+}
+

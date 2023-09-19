@@ -1,0 +1,201 @@
+1: How can I calculate the sum of integer values in an array using Java
+public static int sumArray(int[] arr) {
+    int sum = 0;
+    for (int num : arr) {
+        sum += num;
+    }
+    return sum;
+}
+2: What Java function can I use to calculate the average value of an array of integers
+public static double calculateAverage(int[] arr) {
+    int sum = sumArray(arr);
+    return (double) sum / arr.length;
+}
+3: How can I find the index of a specific element in an array using Java
+public static int findIndex(int[] arr, int target) {
+    for (int i = 0; i < arr.length; i++) {
+        if (arr[i] == target) {
+            return i;
+        }
+    }
+    return -1; // Element not found
+}
+Q4: What Java function checks if an array contains a specific value
+public static boolean containsValue(int[] arr, int target) {
+    for (int num : arr) {
+        if (num == target) {
+            return true;
+        }
+    }
+    return false;
+}
+5: How do I remove a specific element from a Java array
+public static int[] removeElement(int[] arr, int target) {
+    int[] result = new int[arr.length - 1];
+    int index = 0;
+    for (int num : arr) {
+        if (num != target) {
+            result[index] = num;
+            index++;
+        }
+    }
+    return result;
+}
+Q6: What Java function can I use to copy an array to another array
+public static int[] copyArray(int[] arr) {
+    return Arrays.copyOf(arr, arr.length);
+}
+7: How do I insert an element at a specific position in a Java array
+public static int[] insertElement(int[] arr, int element, int position) {
+    int[] result = new int[arr.length + 1];
+    for (int i = 0, j = 0; i < result.length; i++) {
+        if (i == position) {
+            result[i] = element;
+        } else {
+            result[i] = arr[j];
+            j++;
+        }
+    }
+    return result;
+}
+8: How can I find the minimum and maximum values in a Java array
+public static void findMinMax(int[] arr) {
+    if (arr.length == 0) {
+        System.out.println("Array is empty.");
+        return;
+    }
+    int min = arr[0];
+    int max = arr[0];
+    for (int num : arr) {
+        if (num < min) {
+            min = num;
+        }
+        if (num > max) {
+            max = num;
+        }
+    }
+    System.out.println("Minimum value: " + min);
+    System.out.println("Maximum value: " + max);
+}
+9: How can I reverse an array of integer values using Java
+public static int[] reverseArray(int[] arr) {
+    int[] reversed = new int[arr.length];
+    for (int i = 0; i < arr.length; i++) {
+        reversed[i] = arr[arr.length - 1 - i];
+    }
+    return reversed;
+}
+10: What Java function can I use to find duplicate values in an array
+public static void findDuplicates(int[] arr) {
+    Arrays.sort(arr);
+    for (int i = 0; i < arr.length - 1; i++) {
+        if (arr[i] == arr[i + 1]) {
+            System.out.println("Duplicate value: " + arr[i]);
+        }
+    }
+}
+11: How do I find common values between two arrays in Java
+public static int[] findCommonElements(int[] arr1, int[] arr2) {
+    int[] common = new int[Math.min(arr1.length, arr2.length)];
+    int count = 0;
+    for (int num1 : arr1) {
+        for (int num2 : arr2) {
+            if (num1 == num2) {
+                common[count] = num1;
+                count++;
+            }
+        }
+    }
+    return Arrays.copyOf(common, count);
+}
+12: What Java method can I use to remove duplicate elements from an array
+public static int[] removeDuplicates(int[] arr) {
+    Arrays.sort(arr);
+    int[] unique = new int[arr.length];
+    int count = 0;
+    for (int i = 0; i < arr.length - 1; i++) {
+        if (arr[i] != arr[i + 1]) {
+            unique[count] = arr[i];
+            count++;
+        }
+    }
+    unique[count] = arr[arr.length - 1];
+    return Arrays.copyOf(unique, count + 1);
+}
+13: How do I find the second largest number in a Java array
+public static int findSecondLargest(int[] arr) {
+    if (arr.length < 2) {
+        System.out.println("Array doesn't have a second largest element.");
+        return -1;
+    }
+    Arrays.sort(arr);
+    return arr[arr.length - 2];
+}
+14: How can I count the number of even and odd numbers in a Java array
+public static void countEvenOdd(int[] arr) {
+    int evenCount = 0;
+    int oddCount = 0;
+    for (int num : arr) {
+        if (num % 2 == 0) {
+            evenCount++;
+        } else {
+            oddCount++;
+        }
+    }
+    System.out.println("Even numbers: " + evenCount);
+    System.out.println("Odd numbers: " + oddCount);
+}
+15: What Java function can I use to get the difference between the largest and smallest values in an array\
+public static int findDifference(int[] arr) {
+    if (arr.length == 0) {
+        System.out.println("Array is empty.");
+        return 0;
+    }
+    int min = arr[0];
+    int max = arr[0];
+    for (int num : arr) {
+        if (num < min) {
+            min = num;
+        }
+        if (num > max) {
+            max = num;
+        }
+    }
+    return max - min;
+}
+16: How can I verify if a Java array contains two specified elements (12, 23)
+public static boolean containsTwoElements(int[] arr) {
+    boolean contains12 = false;
+    boolean contains23 = false;
+    for (int num : arr) {
+        if (num == 12) {
+            contains12 = true;
+        }
+        if (num == 23) {
+            contains23 = true;
+        }
+        if (contains12 && contains23) {
+            return true;
+        }
+    }
+    return false;
+}
+17: What Java program can I use to remove duplicate elements from an array and return the new array
+public static int[] removeDuplicatesReturnNewArray(int[] arr) {
+    return Arrays.stream(arr).distinct().toArray();
+}
+18: How can I find the missing number in a sorted array of integers from 1 to 100 using Java
+public static int findMissingNumber(int[] arr) {
+    int expectedSum = 0;
+    int actualSum = 0;
+
+    for (int i = 1; i <= 100; i++) {
+        expectedSum += i;
+    }
+
+    for (int num : arr) {
+        actualSum += num;
+    }
+
+    return expectedSum - actualSum;
+}

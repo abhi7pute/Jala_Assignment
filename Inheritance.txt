@@ -1,0 +1,119 @@
+1: Create three methods in each class, 2 methods are specific to each class and a third method (override method) should be in all three Classes A, B, and C
+class A {
+    void methodA1() {
+        System.out.println("This is methodA1 from class A");
+    }
+
+    void commonMethod() {
+        System.out.println("This is the overridden commonMethod in class A");
+    }
+}
+
+class B extends A {
+    void methodB1() {
+        System.out.println("This is methodB1 from class B");
+    }
+
+    @Override
+    void commonMethod() {
+        System.out.println("This is the overridden commonMethod in class B");
+    }
+}
+
+class C extends B {
+    void methodC1() {
+        System.out.println("This is methodC1 from class C");
+    }
+
+    @Override
+    void commonMethod() {
+        System.out.println("This is the overridden commonMethod in class C");
+    }
+}
+2: Create a class with the main method. Create an object for each class A, B, and C in the main method and call every method of each class using its own object/instance
+public class Main {
+    public static void main(String[] args) {
+        A objectA = new A();
+        B objectB = new B();
+        C objectC = new C();
+
+        objectA.methodA1();
+        objectA.commonMethod();
+
+        objectB.methodB1();
+        objectB.commonMethod();
+
+        objectC.methodC1();
+        objectC.commonMethod();
+    }
+}
+3: Call an overridden method with a superclass reference to B and C class’s objects.
+public class Main {
+    public static void main(String[] args) {
+        B objectB = new B();
+        C objectC = new C();
+
+        // Calling overridden method commonMethod with superclass reference
+        A refToB = objectB;
+        A refToC = objectC;
+
+        refToB.commonMethod(); // Calls the overridden method in class B
+        refToC.commonMethod(); // Calls the overridden method in class C
+    }
+}
+4: Runtime Polymorphism with Data Members/Instance variables. Repeat the above process only for data members
+class A {
+    int a = 10;
+
+    void methodA1() {
+        System.out.println("This is methodA1 from class A");
+    }
+
+    void commonMethod() {
+        System.out.println("This is the overridden commonMethod in class A");
+    }
+}
+
+class B extends A {
+    int b = 20;
+
+    void methodB1() {
+        System.out.println("This is methodB1 from class B");
+    }
+
+    @Override
+    void commonMethod() {
+        System.out.println("This is the overridden commonMethod in class B");
+    }
+}
+
+class C extends B {
+    int c = 30;
+
+    void methodC1() {
+        System.out.println("This is methodC1 from class C");
+    }
+
+    @Override
+    void commonMethod() {
+        System.out.println("This is the overridden commonMethod in class C");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        B objectB = new B();
+        C objectC = new C();
+
+
+        A refToB = objectB;
+        A refToC = objectC;
+
+        System.out.println("a from class A: " + refToB.a);
+        System.out.println("b from class B: " + refToB.b);
+
+        System.out.println("a from class A: " + refToC.a);
+        System.out.println("b from class B: " + refToC.b);
+        System.out.println("c from class C: " + refToC.c);
+    }
+}

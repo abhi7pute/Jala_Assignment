@@ -1,0 +1,121 @@
+1. Write a class with a default constructor, one argument constructor, and two argument constructors. Instantiate the class to call all the constructors of that class from a main class:
+
+public class MyClass {
+    // Default constructor
+    public MyClass() {
+        System.out.println("Default constructor called.");
+    }
+
+    // One argument constructor
+    public MyClass(int arg1) {
+        System.out.println("One argument constructor called with arg1: " + arg1);
+    }
+
+    // Two argument constructor
+    public MyClass(int arg1, String arg2) {
+        System.out.println("Two argument constructor called with arg1: " + arg1 + " and arg2: " + arg2);
+    }
+
+    public static void main(String[] args) {
+        // Instantiate the class and call constructors
+        MyClass obj1 = new MyClass();
+        MyClass obj2 = new MyClass(42);
+        MyClass obj3 = new MyClass(99, "Hello");
+    }
+}
+
+2. Call the constructors (both default and argument constructors) of the superclass from a child class:
+
+class ParentClass {
+    public ParentClass() {
+        System.out.println("ParentClass default constructor called.");
+    }
+
+    public ParentClass(int arg) {
+        System.out.println("ParentClass one argument constructor called with arg: " + arg);
+    }
+}
+
+class ChildClass extends ParentClass {
+    public ChildClass() {
+        super(); // Call the default constructor of the parent class
+        System.out.println("ChildClass default constructor called.");
+    }
+
+    public ChildClass(int arg) {
+        super(arg); // Call the one argument constructor of the parent class
+        System.out.println("ChildClass one argument constructor called with arg: " + arg);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ChildClass child1 = new ChildClass();
+        ChildClass child2 = new ChildClass(42);
+    }
+}
+
+3. Apply private, public, protected, and default access modifiers to the constructor:
+
+public class AccessModifiersExample {
+    public AccessModifiersExample() {
+        System.out.println("Public constructor called.");
+    }
+
+    private AccessModifiersExample(int arg) {
+        System.out.println("Private constructor called with arg: " + arg);
+    }
+
+    protected AccessModifiersExample(String arg) {
+        System.out.println("Protected constructor called with arg: " + arg);
+    }
+
+    AccessModifiersExample(double arg) {
+        System.out.println("Default (package-private) constructor called with arg: " + arg);
+    }
+
+    public static void main(String[] args) {
+        AccessModifiersExample publicObj = new AccessModifiersExample();
+        // AccessModifiersExample privateObj = new AccessModifiersExample(42); // Error: Cannot access private constructor
+        AccessModifiersExample protectedObj = new AccessModifiersExample("Hello");
+        AccessModifiersExample defaultObj = new AccessModifiersExample(3.14);
+    }
+}
+
+4. Write constructors with a return type int and String:
+
+public class ReturnTypesExample {
+    public ReturnTypesExample() {
+        System.out.println("Constructor with no return type called.");
+    }
+
+    public int ReturnIntConstructor() {
+        System.out.println("Constructor with return type int called.");
+        return 42;
+    }
+
+    public String ReturnStringConstructor() {
+        System.out.println("Constructor with return type String called.");
+        return "Hello";
+    }
+
+    public static void main(String[] args) {
+        ReturnTypesExample obj = new ReturnTypesExample();
+        int intValue = obj.ReturnIntConstructor();
+        String stringValue = obj.ReturnStringConstructor();
+    }
+}
+
+5. Try to call the constructor multiple times with the same object:
+
+public class MultipleConstructorCalls {
+    public MultipleConstructorCalls() {
+        System.out.println("Constructor called.");
+    }
+
+    public static void main(String[] args) {
+        MultipleConstructorCalls obj = new MultipleConstructorCalls();
+        // You can only call the constructor once for each object creation.
+        // obj(); // This will result in a compilation error.
+    }
+}

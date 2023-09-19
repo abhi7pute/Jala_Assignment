@@ -1,0 +1,201 @@
+1. Write a program to generate Arithmetic Exception without exception handling
+public class ArithmeticExceptionDemo {
+    public static void main(String[] args) {
+        int dividend = 10;
+        int divisor = 0;
+        int result = dividend / divisor; // This line will generate ArithmeticException
+        System.out.println("Result: " + result);
+    }
+}
+2. Handle the Arithmetic exception using try-catch block
+public class ArithmeticExceptionDemo {
+    public static void main(String[] args) {
+        int dividend = 10;
+        int divisor = 0;
+        try {
+            int result = dividend / divisor;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.err.println("Arithmetic Exception: " + e.getMessage());
+        }
+    }
+}
+3. Write a method which throws exception, Call that method in the main class without try block
+public class ExceptionThrower {
+    public static void main(String[] args) {
+        throwException(); // Calling a method that throws an exception without try block
+    }
+
+    public static void throwException() throws Exception {
+        throw new Exception("This is a custom exception.");
+    }
+}
+4. Write a program with multiple catch blocks
+public class MultipleCatchBlocksDemo {
+    public static void main(String[] args) {
+        try {
+            int[] numbers = {1, 2, 3};
+            int result = numbers[5] / 0;
+        } catch (ArithmeticException e) {
+            System.err.println("Arithmetic Exception: " + e.getMessage());
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("Array Index Out Of Bounds Exception: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Generic Exception: " + e.getMessage());
+        }
+    }
+}
+5. Write a program to throw exception with your own message
+public class CustomExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            throw new Exception("This is a custom exception with a message.");
+        } catch (Exception e) {
+            System.err.println("Custom Exception: " + e.getMessage());
+        }
+    }
+}
+6. Write a program to create your own exception
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+
+public class CustomExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            throw new CustomException("This is my custom exception.");
+        } catch (CustomException e) {
+            System.err.println("Custom Exception: " + e.getMessage());
+        }
+    }
+}
+7. Write a program with finally block
+public class FinallyBlockDemo {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;
+            System.out.println("Result: " + result);
+        } catch (ArithmeticException e) {
+            System.err.println("Arithmetic Exception: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed.");
+        }
+    }
+}
+8. Write a program to generate Arithmetic Exception
+public class ArithmeticExceptionDemo {
+    public static void main(String[] args) {
+        int dividend = 10;
+        int divisor = 0;
+        int result = dividend / divisor; // This line will generate ArithmeticException
+        System.out.println("Result: " + result);
+    }
+}
+9. Write a program to generate ArrayIndexOutOfBoundsException
+public class ArrayIndexOutOfBoundsDemo {
+    public static void main(String[] args) {
+        int[] numbers = {1, 2, 3};
+        System.out.println(numbers[4]); // This line will generate ArrayIndexOutOfBoundsException
+    }
+}
+10. Write a program to generate ClassNotFoundException
+public class ClassNotFoundExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            Class.forName("NonExistentClass"); // This line will generate ClassNotFoundException
+        } catch (ClassNotFoundException e) {
+            System.err.println("Class Not Found Exception: " + e.getMessage());
+        }
+    }
+}
+11. Write a program to generate FileNotFoundException
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class FileNotFoundExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            FileInputStream file = new FileInputStream(new File("nonexistent.txt")); // This line will generate FileNotFoundException
+        } catch (FileNotFoundException e) {
+            System.err.println("File Not Found Exception: " + e.getMessage());
+        }
+    }
+}
+12. Write a program to generate IOException
+import java.io.IOException;
+
+public class IOExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            throw new IOException("This is an IO exception.");
+        } catch (IOException e) {
+            System.err.println("IO Exception: " + e.getMessage());
+        }
+    }
+}
+13. Write a program to generate NoSuchFieldException
+public class NoSuchFieldExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            Class<?> clazz = Class.forName("java.lang.String");
+            clazz.getDeclaredField("nonexistentField"); // This line will generate NoSuchFieldException
+        } catch (ClassNotFoundException | NoSuchFieldException e) {
+            System.err.println("Exception: " + e.getMessage());
+        }
+    }
+}
+14. Write a program to generate NoSuchMethodException
+import java.lang.reflect.Method;
+
+public class NoSuchMethodExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            Class<?> clazz = Class.forName("java.lang.String");
+            Method method = clazz.getMethod("nonexistentMethod"); // This line will generate NoSuchMethodException
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            System.err.println("Exception: " + e.getMessage());
+        }
+    }
+}
+15. Write a program to generate NullPointerException
+public class NullPointerExceptionDemo {
+    public static void main(String[] args) {
+        String str = null;
+        System.out.println(str.length()); // This line will generate NullPointerException
+    }
+}
+16. Write a program to generate NumberFormatException
+public class NumberFormatExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            int number = Integer.parseInt("abc"); // This line will generate NumberFormatException
+        } catch (NumberFormatException e) {
+            System.err.println("Number Format Exception: " + e.getMessage());
+        }
+    }
+}
+17. Write a program to generate StringIndexOutOfBoundsException
+public class StringIndexOutOfBoundsDemo {
+    public static void main(String[] args) {
+        String str = "Hello";
+        char ch = str.charAt(10); // This line will generate StringIndexOutOfBoundsException
+    }
+}
+18. Write a program to generate SQLException
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class SQLExceptionDemo {
+    public static void main(String[] args) {
+        try {
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nonexistentdb", "username", "password");
+        } catch (SQLException e) {
+            System.err.println("SQL Exception: " + e.getMessage());
+        }
+    }
+}

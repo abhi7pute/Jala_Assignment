@@ -1,0 +1,102 @@
+1. Arithmetic Operators (+, -, *, /)
+public class ArithmeticOperators {
+    public static void main(String[] args) {
+        int num1 = 10;
+        int num2 = 5;
+
+        int addition = num1 + num2;
+        int subtraction = num1 - num2;
+        int multiplication = num1 * num2;
+        double division = (double) num1 / num2;
+
+        System.out.println("Addition: " + addition);
+        System.out.println("Subtraction: " + subtraction);
+        System.out.println("Multiplication: " + multiplication);
+        System.out.println("Division: " + division);
+    }
+}
+2. Increment and Decrement Operators (++, --)
+public class IncrementDecrementOperators {
+    public static void main(String[] args) {
+        int num = 5;
+
+        num++;
+        System.out.println("Incremented: " + num);
+
+        num--;
+        System.out.println("Decremented: " + num);
+    }
+}
+3. Equal and Not Equal Operators
+public class EqualNotEqualOperators {
+    public static void main(String[] args) {
+        int num1 = 10;
+        int num2 = 5;
+
+        boolean isEqual = (num1 == num2);
+        boolean isNotEqual = (num1 != num2);
+
+        System.out.println("Equal: " + isEqual);
+        System.out.println("Not Equal: " + isNotEqual);
+    }
+}
+4. Check if Two Numbers are Equal
+public class EqualNumbers {
+    public static void main(String[] args) {
+        int num1 = 10;
+        int num2 = 5;
+
+        if (num1 == num2) {
+            System.out.println("The two numbers are equal.");
+        } else {
+            System.out.println("The two numbers are not equal.");
+        }
+    }
+}
+5. Logical AND, OR, and NOT Operators
+public class LogicalOperators {
+    public static void main(String[] args) {
+        boolean a = true;
+        boolean b = false;
+
+        boolean andResult = a && b;
+        boolean orResult = a || b;
+        boolean notResult = !a;
+
+        System.out.println("AND: " + andResult);
+        System.out.println("OR: " + orResult);
+        System.out.println("NOT: " + notResult);
+    }
+}
+6. Relational Operators (<, <=, >, >=)
+public class RelationalOperators {
+    public static void main(String[] args) {
+        int num1 = 10;
+        int num2 = 5;
+
+        boolean lessThan = (num1 < num2);
+        boolean lessThanOrEqual = (num1 <= num2);
+        boolean greaterThan = (num1 > num2);
+        boolean greaterThanOrEqual = (num1 >= num2);
+
+        System.out.println("Less Than: " + lessThan);
+        System.out.println("Less Than or Equal: " + lessThanOrEqual);
+        System.out.println("Greater Than: " + greaterThan);
+        System.out.println("Greater Than or Equal: " + greaterThanOrEqual);
+    }
+}
+7. Print Smaller and Larger Number
+public class SmallerAndLargerNumber {
+    public static void main(String[] args) {
+        int num1 = 10;
+        int num2 = 5;
+
+        if (num1 < num2) {
+            System.out.println("Smaller Number: " + num1);
+            System.out.println("Larger Number: " + num2);
+        } else {
+            System.out.println("Smaller Number: " + num2);
+            System.out.println("Larger Number: " + num1);
+        }
+    }
+}
